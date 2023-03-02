@@ -8,14 +8,14 @@ Queue initQueue() {
 }
 
 bool isEmpty(Queue* queue) {
-    return !!queue->head;
+    return queue->head == NULL;
 }
 
 bool pop(Book* book, Queue* queue) {
     if(isEmpty(queue))
         return false;
 
-    Node* node = queue->head;
+    QueueNode* node = queue->head;
     *book = node->data;
 
     queue->head = node->next;
@@ -27,11 +27,12 @@ bool pop(Book* book, Queue* queue) {
 }
 
 void push(Queue *queue, Book book) {
-    Node* node = (Node*)malloc(sizeof(Node));
+    QueueNode* node = (QueueNode*)malloc(sizeof(QueueNode));
     node->data = book;
+    node->next = NULL;
 
     if(isEmpty(queue))
-        queue->head = node;
+        queue->head = queue->tail = node;
     else
         queue->tail->next = node;
 

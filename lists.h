@@ -4,15 +4,7 @@
 #include <stddef.h>
 #include <cstdio>
 #include <stdlib.h>
-
-const int SIZE = 20;
-
-struct Book {
-    char name[SIZE];
-    char author[SIZE];
-    int pageCount;
-    float rating;
-};
+#include "book.h"
 
 struct Node {
     Book data;  // поле данных

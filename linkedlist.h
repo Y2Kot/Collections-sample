@@ -4,26 +4,18 @@
 #include <stddef.h>
 #include <cstdio>
 #include <stdlib.h>
+#include "book.h"
 
-const int SIZE = 20;
-
-struct Book {
-    char name[SIZE];
-    char author[SIZE];
-    int pageCount;
-    float rating;
-};
-
-struct Node {
+struct LinkedListNode {
     Book data;
-    Node *next;
-    Node *prev;
+    LinkedListNode *next;
+    LinkedListNode *prev;
 };
 
 struct LinkedList {
     int size;
-    Node *head;
-    Node *tail;
+    LinkedListNode *head;
+    LinkedListNode *tail;
 };
 
 LinkedList initLinkedList();
