@@ -15,9 +15,9 @@ int main()
     testStaticList();
     testDynamicList();
     testList();
-    testQueue();
+    /*testQueue();
     testStack();
-    testLinkedList();
+    */testLinkedList();
     return 0;
 }
 

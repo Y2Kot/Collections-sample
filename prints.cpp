@@ -9,7 +9,7 @@ void print(SBookList* list)
 {
 	printf("[\n");
 	for (int i = 0; i < list->size; i++)
-		print(&(list->books[i]));
+		print(list->books + i);
 	printf("]\n");
 }
 
@@ -17,7 +17,7 @@ void print(DBookList* list)
 {
 	printf("[\n");
 	for (int i = 0; i < list->size; i++)
-		print(&(list->books[i]));
+		print(list->books + i);
 	printf("]\n");
 }
 
