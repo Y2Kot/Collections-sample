@@ -24,8 +24,8 @@ void print(DBookList* list)
 void print(LinkedList* list)
 {
 	printf("[\n");
-	LinkedListNode* tmp = list->head;
-	LinkedListNode* next = NULL;
+	LinkedNode* tmp = list->head;
+	LinkedNode* next = NULL;
 	while (tmp) {
 		next = tmp->next;
 		print(&(tmp->data));

@@ -9,10 +9,10 @@ struct Book {
     double rating;
 };
 
-struct LinkedListNode {
+struct LinkedNode {
     Book data;
-    LinkedListNode* next;
-    LinkedListNode* prev;
+    LinkedNode* next;
+    LinkedNode* prev;
 };
 
 struct Node {

@@ -14,10 +14,10 @@ int main()
 {
     testStaticList();
     testDynamicList();
-    testLinkedList();
     testList();
-    //testQueue();
-    //testStack();
+    testQueue();
+    testStack();
+    testLinkedList();
     return 0;
 }
 

@@ -8,8 +8,8 @@
 
 struct LinkedList {
     int size;
-    LinkedListNode *head;
-    LinkedListNode *tail;
+    LinkedNode *head;
+    LinkedNode *tail;
 };
 
 LinkedList initLinkedList();
