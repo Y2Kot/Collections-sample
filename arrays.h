@@ -2,7 +2,7 @@
 #define ARRAYS_H
 
 #include <stdlib.h>
-#include "book.h"
+#include "samplestructs.h"
 
 // Список на базе статического массива
 struct SBookList {

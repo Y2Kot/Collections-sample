@@ -4,12 +4,7 @@
 #include <stddef.h>
 #include <cstdio>
 #include <stdlib.h>
-#include "book.h"
-
-struct Node {
-    Book data;  // поле данных
-    Node* next; // поле связей
-};
+#include "samplestructs.h"
 
 Node* init(Book book);
 Node* addBook(Node* elem, Book book);

@@ -4,13 +4,7 @@
 #include <stddef.h>
 #include <cstdio>
 #include <stdlib.h>
-#include "book.h"
-
-struct LinkedListNode {
-    Book data;
-    LinkedListNode *next;
-    LinkedListNode *prev;
-};
+#include "samplestructs.h"
 
 struct LinkedList {
     int size;

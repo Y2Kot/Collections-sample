@@ -4,15 +4,10 @@
 #include <stddef.h>
 #include <cstdio>
 #include <stdlib.h>
-#include "book.h"
-
-struct StackNode {
-    Book data;
-    StackNode* next;
-};
+#include "samplestructs.h"
 
 struct Stack {
-    StackNode* top;
+    Node* top;
 };
 
 Stack initStack();

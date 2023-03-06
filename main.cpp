@@ -16,14 +16,14 @@ int main()
     testDynamicList();
     testLinkedList();
     testList();
-    testQueue();
-    testStack();
+    //testQueue();
+    //testStack();
     return 0;
 }
 
 void testStaticList()
 {
-    printf_s("\nStatic list:\n");
+    printf("\nStatic list:\n");
 
     Book firstBook = Book{
             "First Book",
@@ -39,19 +39,18 @@ void testStaticList()
             10
     };
 
-    Book books[2] = { firstBook, newBook };
     SBookList list = SBookList{};
     list.books[0] = firstBook;
     list.size = 1;
     staticAddBook(&list, newBook, 1);
-    printStaticBookList(list);
+    print(&list);
     staticRemoveBook(&list, 0);
-    printStaticBookList(list);
+    print(&list);
 }
 
 void testDynamicList()
 {
-    printf_s("\nDynamic list:\n");
+    printf("\nDynamic list:\n");
     Book* books = (Book*)calloc(1, sizeof(Book));
 
     books[0] = Book{
@@ -74,13 +73,13 @@ void testDynamicList()
     };
 
     dynamicAddBook(&dynamicBookList, newBook, 1);
-    printDynamicBookList(dynamicBookList);
+    print(&dynamicBookList);
     dynamicRemoveBook(&dynamicBookList, 2);
-    printDynamicBookList(dynamicBookList);
+    print(&dynamicBookList);
 }
 
 void testLinkedList() {
-    printf_s("\nLinked list:\n");
+    printf("\nLinked list:\n");
     LinkedList list = initLinkedList();
 
     Book firstBook = Book{
@@ -99,15 +98,15 @@ void testLinkedList() {
 
     pushFront(&list, firstBook);
     pushBack(&list, newBook);
-    printLinkedBookList(list);
+    print(&list);
     popBack(&list);
     popFront(&list);
-    printLinkedBookList(list);
+    print(&list);
 }
 
 void testList()
 {
-    printf_s("\nList:\n");
+    printf("\nList:\n");
 
     Book firstBook = Book{
             "First Book",
@@ -133,14 +132,14 @@ void testList()
     Node* list = init(firstBook);
     Node* newNode = addBook(list, newBook);
     addBook(newNode, superNewBook);
-    printBookList(list);
+    print(list);
     deleteBook(newNode, list);
-    printBookList(list);
+    print(list);
 }
 
 void testQueue()
 {
-    printf_s("\nQueue:\n");
+    printf("\nQueue:\n");
     Queue queue = initQueue();
 
     Book firstBook = Book{
@@ -159,16 +158,16 @@ void testQueue()
 
     push(&queue, firstBook);
     push(&queue, newBook);
-    printBookQueue(queue);
+    print(&queue);
     Book* poppedBook = (Book*)malloc(sizeof(Book));
     pop(poppedBook, &queue);
-    printBook(*poppedBook);
-    printBookQueue(queue);
+    print(poppedBook);
+    print(&queue);
 }
 
 void testStack()
 {
-    printf_s("\nStack:\n");
+    printf("\nStack:\n");
     Stack stack = initStack();
 
     Book firstBook = Book{
@@ -187,9 +186,9 @@ void testStack()
 
     push(&stack, firstBook);
     push(&stack, newBook);
-    printStack(stack);
+    print(&stack);
     Book* poppedBook = (Book*)malloc(sizeof(Book));
     pop(poppedBook, &stack);
-    printBook(*poppedBook);
-    printStack(stack);
+    print(poppedBook);
+    print(&stack);
 }

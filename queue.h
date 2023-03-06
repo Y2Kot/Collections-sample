@@ -4,15 +4,10 @@
 #include <stddef.h>
 #include <cstdio>
 #include <stdlib.h>
-#include "book.h"
-
-struct QueueNode {
-  Book data;
-  QueueNode* next;
-};
+#include "samplestructs.h"
 
 struct Queue {
-	QueueNode *head, *tail;
+	Node *head, *tail;
 };
 
 Queue initQueue();

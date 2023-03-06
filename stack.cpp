@@ -6,11 +6,11 @@ Stack initStack() {
 }
 
 bool isEmpty(Stack* stack) {
-    return stack->top == NULL;
+    return !!stack->top;
 }
 
 void push(Stack* stack, Book book) {
-    StackNode* newNode = (StackNode*) malloc(sizeof(StackNode));
+    Node* newNode = (Node*) malloc(sizeof(Node));
     newNode->data = book;
     newNode->next = stack->top;
     stack->top = newNode;
@@ -20,7 +20,7 @@ bool pop(Book* book, Stack* stack) {
     if (isEmpty(stack))
         return false;
 
-    StackNode* node = stack->top;
+    Node* node = stack->top;
     stack->top = stack->top->next;
     *book = node->data;
     free(node);
@@ -29,7 +29,7 @@ bool pop(Book* book, Stack* stack) {
 
 void clear(Stack* stack) {
     while (stack->top) {
-        StackNode* tmp = stack->top;
+        Node* tmp = stack->top;
         stack->top = stack->top->next;
         free(tmp);
     }

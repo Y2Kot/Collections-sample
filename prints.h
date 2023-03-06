@@ -6,10 +6,10 @@
 #include "queue.h"
 #include "stack.h"
 
-void printBook(Book book);
-void printStaticBookList(SBookList list);
-void printDynamicBookList(DBookList list);
-void printLinkedBookList(LinkedList list);
-void printBookQueue(Queue queue);
-void printStack(Stack stack);
-void printBookList(Node* list);
+void print(Book* book);
+void print(SBookList* list);
+void print(DBookList* list);
+void print(LinkedList* list);
+void print(Queue* queue);
+void print(Stack* stack);
+void print(Node* list);

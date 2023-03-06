@@ -1,72 +1,72 @@
 #include "prints.h"
 
-void printBook(Book book)
+void print(Book* book)
 {
-	printf_s("%s by %s, pages: %d, rating: %f\n", book.name, book.author, book.pageCount, book.rating);
+	printf("%s by %s, pages: %d, rating: %f\n", book->name, book->author, book->pageCount, book->rating);
 }
 
-void printStaticBookList(SBookList list)
+void print(SBookList* list)
 {
-	printf_s("[\n");
-	for (int i = 0; i < list.size; i++)
-		printBook(list.books[i]);
-	printf_s("]\n");
+	printf("[\n");
+	for (int i = 0; i < list->size; i++)
+		print(&(list->books[i]));
+	printf("]\n");
 }
 
-void printDynamicBookList(DBookList list)
+void print(DBookList* list)
 {
-	printf_s("[\n");
-	for (int i = 0; i < list.size; i++)
-		printBook(list.books[i]);
-	printf_s("]\n");
+	printf("[\n");
+	for (int i = 0; i < list->size; i++)
+		print(&(list->books[i]));
+	printf("]\n");
 }
 
-void printLinkedBookList(LinkedList list)
+void print(LinkedList* list)
 {
-	printf_s("[\n");
-	LinkedListNode* tmp = list.head;
+	printf("[\n");
+	LinkedListNode* tmp = list->head;
 	LinkedListNode* next = NULL;
 	while (tmp) {
 		next = tmp->next;
-		printBook(tmp->data);
+		print(&(tmp->data));
 		tmp = next;
 	}
-	printf_s("]\n");
+	printf("]\n");
 }
 
-void printBookQueue(Queue queue)
+void print(Queue* queue)
 {
-	printf_s("[\n");
-	QueueNode* tmp = queue.head;
-	QueueNode* next = NULL;
+	printf("[\n");
+	Node* tmp = queue->head;
+	Node* next = NULL;
 	while (tmp) {
 		next = tmp->next;
-		printBook(tmp->data);
+		print(&(tmp->data));
 		tmp = next;
 	}
-	printf_s("]\n");
+	printf("]\n");
 }
 
-void printStack(Stack stack)
+void print(Stack* stack)
 {
-	printf_s("[\n");
-	StackNode* tmp = stack.top;
-	StackNode* next = NULL;
+	printf("[\n");
+	Node* tmp = stack->top;
+	Node* next = NULL;
 	while (tmp) {
 		next = tmp->next;
-		printBook(tmp->data);
+		print(&(tmp->data));
 		tmp = next;
 	}
-	printf_s("]\n");
+	printf("]\n");
 }
 
-void printBookList(Node* list)
+void print(Node* list)
 {
-	printf_s("[\n");
+	printf("[\n");
 	Node* p = list;
 	do {
-		printBook(p->data);  // вывод адреса элемента p->data
+		print(&(p->data));  // вывод адреса элемента p->data
 		p = p->next;                // переход к следующему узлу
 	} while (p != NULL);
-	printf_s("]\n");
+	printf("]\n");
 }
