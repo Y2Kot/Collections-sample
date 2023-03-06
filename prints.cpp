@@ -65,8 +65,8 @@ void print(Node* list)
 	printf("[\n");
 	Node* p = list;
 	do {
-		print(&(p->data));  // вывод адреса элемента p->data
-		p = p->next;                // переход к следующему узлу
+		print(&(p->data));  // РІС‹РІРѕРґ Р°РґСЂРµСЃР° СЌР»РµРјРµРЅС‚Р° p->data
+		p = p->next;                // РїРµСЂРµС…РѕРґ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ СѓР·Р»Сѓ
 	} while (p != NULL);
 	printf("]\n");
 }

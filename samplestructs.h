@@ -17,8 +17,8 @@ struct LinkedNode {
 };
 
 struct Node {
-    Book data;  // поле данных
-    Node* next; // поле связей
+    Book data;  // РїРѕР»Рµ РґР°РЅРЅС‹С…
+    Node* next; // РїРѕР»Рµ СЃРІСЏР·РµР№
 };
 
 #endif // SAMPLESTRUCTS_H
