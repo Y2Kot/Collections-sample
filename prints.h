@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PRINTS_H
+#define PRINTS_H
 
 #include "arrays.h"
 #include "linkedlist.h"
@@ -13,3 +14,5 @@ void print(LinkedList* list);
 void print(Queue* queue);
 void print(Stack* stack);
 void print(Node* list);
+
+#endif // PRINTS_H

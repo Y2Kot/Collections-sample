@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SAMPLESTRUCTS_H
+#define SAMPLESTRUCTS_H
 
 const int SIZE = 20;
 
@@ -19,3 +20,5 @@ struct Node {
     Book data;  // поле данных
     Node* next; // поле связей
 };
+
+#endif // SAMPLESTRUCTS_H

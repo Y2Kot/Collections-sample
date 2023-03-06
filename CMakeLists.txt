@@ -12,7 +12,8 @@ add_executable(CollectionsSample main.cpp
     stack.h stack.cpp
     queue.h queue.cpp
     linkedlist.h linkedlist.cpp
-  "prints.h" "prints.cpp"   "samplestructs.h")
+    prints.h prints.cpp   
+    samplestructs.h)
 
 install(TARGETS CollectionsSample
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
