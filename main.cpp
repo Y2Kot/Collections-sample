@@ -1,4 +1,3 @@
-#include <iostream>
 #include "prints.h"
 
 using namespace std;
@@ -10,36 +9,34 @@ void testList();
 void testQueue();
 void testStack();
 
-int main()
-{
+int main() {
     testStaticList();
     testDynamicList();
     testList();
-    /*testQueue();
+    testQueue();
     testStack();
-    */testLinkedList();
+    testLinkedList();
     return 0;
 }
 
-void testStaticList()
-{
+void testStaticList() {
     printf("\nStatic list:\n");
 
-    Book firstBook = Book{
+    Book firstBook = Book {
             "First Book",
             "Author",
             1,
             1
     };
 
-    Book newBook = Book{
+    Book newBook = Book {
             "New Book",
             "Author",
             100,
             10
     };
 
-    SBookList list = SBookList{};
+    SBookList list = SBookList {};
     list.books[0] = firstBook;
     list.size = 1;
     staticAddBook(&list, newBook, 1);
@@ -48,26 +45,25 @@ void testStaticList()
     print(&list);
 }
 
-void testDynamicList()
-{
+void testDynamicList() {
     printf("\nDynamic list:\n");
     Book* books = (Book*)calloc(1, sizeof(Book));
 
-    books[0] = Book{
+    books[0] = Book {
             "First Book",
             "Author",
             1,
             1
     };
 
-    Book newBook = Book{
+    Book newBook = Book {
             "New Book",
             "Author",
             100,
             10
     };
 
-    DBookList dynamicBookList = DBookList{
+    DBookList dynamicBookList = DBookList {
         books,
         1
     };
@@ -82,14 +78,14 @@ void testLinkedList() {
     printf("\nLinked list:\n");
     LinkedList list = initLinkedList();
 
-    Book firstBook = Book{
+    Book firstBook = Book {
             "First Book",
             "Author",
             1,
             1
     };
 
-    Book newBook = Book{
+    Book newBook = Book {
             "New Book",
             "Author",
             100,
@@ -104,25 +100,24 @@ void testLinkedList() {
     print(&list);
 }
 
-void testList()
-{
+void testList() {
     printf("\nList:\n");
 
-    Book firstBook = Book{
+    Book firstBook = Book {
             "First Book",
             "Author",
             1,
             1
     };
 
-    Book newBook = Book{
+    Book newBook = Book {
             "New Book",
             "Author",
             100,
             10
     };
 
-    Book superNewBook = Book{
+    Book superNewBook = Book {
             "Super New Book",
             "Author",
             1000,
@@ -137,19 +132,18 @@ void testList()
     print(list);
 }
 
-void testQueue()
-{
+void testQueue() {
     printf("\nQueue:\n");
     Queue queue = initQueue();
 
-    Book firstBook = Book{
+    Book firstBook = Book {
             "First Book",
             "Author",
             1,
             1
     };
 
-    Book newBook = Book{
+    Book newBook = Book {
             "New Book",
             "Author",
             100,
@@ -165,19 +159,18 @@ void testQueue()
     print(&queue);
 }
 
-void testStack()
-{
+void testStack() {
     printf("\nStack:\n");
     Stack stack = initStack();
 
-    Book firstBook = Book{
+    Book firstBook = Book {
             "First Book",
             "Author",
             1,
             1
     };
 
-    Book newBook = Book{
+    Book newBook = Book {
             "New Book",
             "Author",
             100,

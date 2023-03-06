@@ -8,7 +8,7 @@ Queue initQueue() {
 }
 
 bool isEmpty(Queue* queue) {
-    return !!queue->head;
+    return !queue->head;
 }
 
 bool pop(Book* book, Queue* queue) {

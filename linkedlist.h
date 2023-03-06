@@ -1,8 +1,6 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-#include <stddef.h>
-#include <cstdio>
 #include <stdlib.h>
 #include "samplestructs.h"
 
@@ -18,6 +16,5 @@ void pushFront(LinkedList* list, Book data);
 Book popFront(LinkedList* list);
 void pushBack(LinkedList* list, Book data);
 Book popBack(LinkedList* list);
-
 
 #endif // LINKEDLIST_H

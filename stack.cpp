@@ -6,7 +6,7 @@ Stack initStack() {
 }
 
 bool isEmpty(Stack* stack) {
-    return !!stack->top;
+    return !stack->top;
 }
 
 void push(Stack* stack, Book book) {
