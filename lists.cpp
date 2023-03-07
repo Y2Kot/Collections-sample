@@ -4,7 +4,9 @@ List init(Book book) {
     Node* root = (Node*) malloc(sizeof(Node));
     root->data = book;
     root->next = NULL; // следующий элемент списка
-    return List { .first = root };  
+    // Если поддерживается стандарт c++ 20, то можно использовать именованные параметры:
+    // return List{ .first = root };
+    return List { root };  
 }
 
 Node* addBook(Node* elem, Book book) {
