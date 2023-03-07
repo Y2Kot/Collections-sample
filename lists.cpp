@@ -4,7 +4,7 @@ List init(Book book) {
     Node* root = (Node*) malloc(sizeof(Node));
     root->data = book;
     root->next = NULL; // следующий элемент списка
-    return List{ root };
+    return List { .first = root };  
 }
 
 Node* addBook(Node* elem, Book book) {
@@ -17,7 +17,7 @@ Node* addBook(Node* elem, Book book) {
 }
 
 void deleteBook(List* list, Node* elem) {
-    Node* temp = list->start;
+    Node* temp = list->first;
     // просматриваем список начиная с корня пока не найдем узел, предшествующий lst
     while (temp->next != elem)
         temp = temp->next;
@@ -26,7 +26,7 @@ void deleteBook(List* list, Node* elem) {
 }
 
 void printBooks(List* list) {
-    Node* p = list->start;
+    Node* p = list->first;
     do {
         printf("%p ", &(p->data));  // вывод адреса элемента p->data
         p = p->next;                // переход к следующему узлу
@@ -34,12 +34,12 @@ void printBooks(List* list) {
 }
 
 void deleteList(List* list) {
-    Node* p = list->start;
+    Node* p = list->first;
     while (p->next) {
         Node* temp = p;
         p = p->next;
         free(temp);
     }
-    free(list->start);                     // возможно повтороное освобождение памяти
+    free(list->first);                     // возможно повтороное освобождение памяти
     free(list);
 }

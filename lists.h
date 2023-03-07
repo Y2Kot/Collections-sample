@@ -6,7 +6,7 @@
 #include "samplestructs.h"
 
 struct List {
-	Node* start;
+	Node* first;
 };
 
 List init(Book book);

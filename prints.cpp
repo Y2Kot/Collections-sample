@@ -63,7 +63,7 @@ void print(Stack* stack)
 void print(List* list)
 {
 	printf("[\n");
-	Node* p = list->start;
+	Node* p = list->first;
 	do {
 		print(&(p->data));  // вывод адреса элемента p->data
 		p = p->next;                // переход к следующему узлу

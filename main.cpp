@@ -125,7 +125,7 @@ void testList() {
     };
 
     List list = init(firstBook);
-    Node* newNode = addBook(list.start, newBook);
+    Node* newNode = addBook(list.first, newBook);
     addBook(newNode, superNewBook);
     print(&list);
     deleteBook(&list, newNode);
