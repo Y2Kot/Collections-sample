@@ -27,5 +27,3 @@ void dynamicRemoveBook(DBookList* books, int index) {
     books->size--;
     books->books = (Book*)realloc(books->books, books->size * sizeof(Book));
 }
-
-

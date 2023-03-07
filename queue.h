@@ -4,23 +4,10 @@
 #include <stddef.h>
 #include <cstdio>
 #include <stdlib.h>
-
-const int SIZE = 20;
-
-struct Book {
-    char name[SIZE];
-    char author[SIZE];
-    int pageCount;
-    float rating;
-};
-
-struct Node {
-  Book data;
-  Node* next;
-};
+#include "samplestructs.h"
 
 struct Queue {
-  Node *head, *tail;
+	Node *head, *tail;
 };
 
 Queue initQueue();

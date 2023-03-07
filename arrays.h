@@ -2,15 +2,7 @@
 #define ARRAYS_H
 
 #include <stdlib.h>
-
-const int SIZE = 20;
-
-struct Book {
-    char name[SIZE];
-    char author[SIZE];
-    int pageCount;
-    float rating;
-};
+#include "samplestructs.h"
 
 // Список на базе статического массива
 struct SBookList {
@@ -26,5 +18,7 @@ struct DBookList {
     int size;
 };
 
+void dynamicAddBook(DBookList* books, Book book, int index);
+void dynamicRemoveBook(DBookList* books, int index);
 
 #endif // ARRAYS_H

@@ -8,7 +8,7 @@ Queue initQueue() {
 }
 
 bool isEmpty(Queue* queue) {
-    return !!queue->head;
+    return !queue->head;
 }
 
 bool pop(Book* book, Queue* queue) {
@@ -29,9 +29,10 @@ bool pop(Book* book, Queue* queue) {
 void push(Queue *queue, Book book) {
     Node* node = (Node*)malloc(sizeof(Node));
     node->data = book;
+    node->next = NULL;
 
     if(isEmpty(queue))
-        queue->head = node;
+        queue->head = queue->tail = node;
     else
         queue->tail->next = node;
 
