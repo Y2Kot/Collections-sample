@@ -5,9 +5,13 @@
 #include <stdlib.h>
 #include "samplestructs.h"
 
-Node* init(Book book);
+struct List {
+	Node* start;
+};
+
+List init(Book book);
 Node* addBook(Node* elem, Book book);
-Node* deleteBook(Node* elem, Node* root);
-void printBooks(Node* list);
+void deleteBook(List* list, Node* elem);
+void deleteAllBooks(Node* root);
 
 #endif // LISTS_H

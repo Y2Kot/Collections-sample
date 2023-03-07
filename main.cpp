@@ -124,12 +124,12 @@ void testList() {
             5
     };
 
-    Node* list = init(firstBook);
-    Node* newNode = addBook(list, newBook);
+    List list = init(firstBook);
+    Node* newNode = addBook(list.start, newBook);
     addBook(newNode, superNewBook);
-    print(list);
-    deleteBook(newNode, list);
-    print(list);
+    print(&list);
+    deleteBook(&list, newNode);
+    print(&list);
 }
 
 void testQueue() {

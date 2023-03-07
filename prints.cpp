@@ -60,10 +60,10 @@ void print(Stack* stack)
 	printf("]\n");
 }
 
-void print(Node* list)
+void print(List* list)
 {
 	printf("[\n");
-	Node* p = list;
+	Node* p = list->start;
 	do {
 		print(&(p->data));  // вывод адреса элемента p->data
 		p = p->next;                // переход к следующему узлу

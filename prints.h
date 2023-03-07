@@ -13,6 +13,6 @@ void print(DBookList* list);
 void print(LinkedList* list);
 void print(Queue* queue);
 void print(Stack* stack);
-void print(Node* list);
+void print(List* list);
 
 #endif // PRINTS_H
