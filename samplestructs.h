@@ -4,8 +4,8 @@
 const int SIZE = 20;
 
 struct Book {
-    char* name;
-    char* author;
+    char name[SIZE];
+    char author[SIZE];
     int pageCount;
     double rating;
 };

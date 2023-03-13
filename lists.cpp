@@ -45,3 +45,12 @@ void deleteList(List* list) {
     free(list->first);                     // возможно повтороное освобождение памяти
     free(list);
 }
+
+void push(List* list, Book book) {
+    Node* node = (Node*)malloc(sizeof(Node));
+
+    node->data = book;
+    node->next = list->first;
+
+    list->first = node;
+}

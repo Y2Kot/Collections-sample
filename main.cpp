@@ -1,6 +1,5 @@
 #include "prints.h"
-
-using namespace std;
+#include "advancediteratoroperations.h"
 
 void testStaticList();
 void testDynamicList();
@@ -8,14 +7,16 @@ void testLinkedList();
 void testList();
 void testQueue();
 void testStack();
+void testIterator();
 
 int main() {
-    testStaticList();
-    testDynamicList();
-    testList();
-    testQueue();
-    testStack();
-    testLinkedList();
+//    testStaticList();
+//    testDynamicList();
+//    testList();
+//    testQueue();
+//    testStack();
+//    testLinkedList();
+    testIterator();
     return 0;
 }
 
@@ -184,4 +185,62 @@ void testStack() {
     pop(poppedBook, &stack);
     print(poppedBook);
     print(&stack);
+}
+
+void testIterator() {
+    Book firstBook = Book {
+            "First Book",
+            "Author",
+            1,
+            1
+    };
+
+    Book secondBook = Book {
+            "Second Book",
+            "Author",
+            1,
+            1
+    };
+
+    Book sixthBook = Book {
+            "Second Book",
+            "Author",
+            1,
+            6
+    };
+
+    Book newBook = Book {
+            "New Book",
+            "Author",
+            100,
+            10
+    };
+
+    Book superNewBook = Book {
+            "Super New Book",
+            "Author",
+            1000,
+            5
+    };
+
+    List list = init(firstBook);
+    Iterator it = begin(list);
+    add(list, it, newBook);
+    next(it);
+    add(list, it, superNewBook);
+    next(it);
+    add(list, it, sixthBook);
+//    printList(list);
+    sortList(list);
+//    printList(list);
+
+    List sortedList = init(superNewBook);
+    insertSort(sortedList, firstBook);
+    insertSort(sortedList, newBook);
+    insertSort(sortedList, newBook);
+    insertSort(sortedList, firstBook);
+    insertSort(sortedList, firstBook);
+    printList(sortedList);
+    removeRepeated(sortedList);
+    printList(sortedList);
 }

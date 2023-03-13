@@ -14,4 +14,5 @@ Node* addBook(Node* elem, Book book);
 void deleteBook(List* list, Node* elem);
 void deleteAllBooks(Node* root);
 
+void push(List* list, Book book);
 #endif // LISTS_H

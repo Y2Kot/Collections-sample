@@ -6,6 +6,7 @@
 #include "lists.h"
 #include "queue.h"
 #include "stack.h"
+#include "iterator.h"
 
 void print(Book* book);
 void print(SBookList* list);
