@@ -16,7 +16,7 @@ void push(Stack* stack, Book book) {
     stack->top = newNode;
 }
 
-bool pop(Book* book, Stack* stack) {
+bool pop(Stack* stack, Book* book) {
     if (isEmpty(stack))
         return false;
 
@@ -35,7 +35,7 @@ void clear(Stack* stack) {
     }
 }
 
-bool peek(Book* book, Stack* stack) {
+bool peek(Stack* stack, Book* book) {
     if (isEmpty(stack))
         return false;
 

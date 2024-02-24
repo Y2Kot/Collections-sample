@@ -10,12 +10,12 @@ void testStack();
 void testIterator();
 
 int main() {
-//    testStaticList();
-//    testDynamicList();
-//    testList();
-//    testQueue();
-//    testStack();
-//    testLinkedList();
+   testStaticList();
+   testDynamicList();
+   testList();
+   testQueue();
+   testStack();
+   testLinkedList();
     testIterator();
     return 0;
 }
@@ -126,10 +126,10 @@ void testList() {
     };
 
     List list = init(firstBook);
-    Node* newNode = addBook(list.first, newBook);
-    addBook(newNode, superNewBook);
+    pushEnd(&list, newBook);
+    pushStart(&list, superNewBook);
     print(&list);
-    deleteBook(&list, newNode);
+    deleteBook(&list, &newBook);
     print(&list);
 }
 
@@ -155,7 +155,7 @@ void testQueue() {
     push(&queue, newBook);
     print(&queue);
     Book* poppedBook = (Book*)malloc(sizeof(Book));
-    pop(poppedBook, &queue);
+    pop(&queue, poppedBook);
     print(poppedBook);
     print(&queue);
 }
@@ -182,7 +182,7 @@ void testStack() {
     push(&stack, newBook);
     print(&stack);
     Book* poppedBook = (Book*)malloc(sizeof(Book));
-    pop(poppedBook, &stack);
+    pop(&stack, poppedBook);
     print(poppedBook);
     print(&stack);
 }

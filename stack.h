@@ -13,8 +13,8 @@ struct Stack {
 Stack initStack();
 bool isEmpty(Stack* stack);
 void push(Stack* stack, Book book);
-bool pop(Book* result, Stack* stack);
+bool pop(Stack* stack, Book* result);
 void clear(Stack* stack);
-bool peek(Book* book, Stack* stack);
+bool peek(Stack* stack, Book* book);
 
 #endif // STACK_H
