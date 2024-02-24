@@ -11,7 +11,7 @@ bool isEmpty(Queue* queue) {
     return !queue->head;
 }
 
-bool pop(Book* book, Queue* queue) {
+bool pop(Queue* queue, Book* book) {
     if(isEmpty(queue))
         return false;
 
