@@ -32,21 +32,20 @@ void pushEnd(List* list, Book book) {
     }
 }
 
-void deleteBook(List* list, Book* elem) {
+void deleteBookByName(List* list, const char* bookName) {
     Node* temp = list->first;
 
     if(temp == NULL)
         return;
 
-    if(!strcmp(temp->data.name, elem->name)) {
+    if(!strcmp(temp->data.name, bookName)) {
         list->first = temp->next;
         free(temp);
         return;
     }
 
-    int isRemoved = 0;
-    while (temp->next && !isRemoved) {
-        if (!strcmp(temp->next->data.name, elem->name)) {
+    while (temp->next) {
+        if (!strcmp(temp->next->data.name, bookName)) {
             Node* removing = temp->next;
             temp->next = removing->next;
             free(removing);
@@ -54,6 +53,17 @@ void deleteBook(List* list, Book* elem) {
         }
         temp = temp->next;
     }
+}
+
+void deleteList(List* list) {
+    Node* p = list->first;
+    while (p->next) {
+        Node* temp = p;
+        p = p->next;
+        free(temp);
+    }
+    free(list->first);                     // возможно повтороное освобождение памяти
+    free(list);
 }
 
 void printBooks(List* list) {
@@ -68,13 +78,18 @@ void printBooks(List* list) {
     } while (p != NULL);
 }
 
-void deleteList(List* list) {
+void printHandler(Book* book) {
+    printf("%p ", book);
+}
+
+void handleBooks(List* list, void(*handler)(Book*)) {
     Node* p = list->first;
-    while (p->next) {
-        Node* temp = p;
+
+    if (p == NULL)
+        return;
+
+    do {
+        handler(&(p->data));
         p = p->next;
-        free(temp);
-    }
-    free(list->first);                     // возможно повтороное освобождение памяти
-    free(list);
+    } while (p != NULL);
 }

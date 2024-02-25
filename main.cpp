@@ -36,8 +36,8 @@ void testStaticList() {
             100,
             10
     };
-
-    SBookList list = SBookList {};
+    
+    SBookCollection list = SBookCollection {};
     list.books[0] = firstBook;
     list.size = 1;
     staticAddBook(&list, newBook, 1);
@@ -63,8 +63,8 @@ void testDynamicList() {
             100,
             10
     };
-
-    DBookList dynamicBookList = DBookList {
+    
+    DBookCollection dynamicBookList = DBookCollection {
         books,
         1
     };
