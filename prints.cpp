@@ -5,7 +5,7 @@ void print(Book* book)
 	printf("%s by %s, pages: %d, rating: %f\n", book->name, book->author, book->pageCount, book->rating);
 }
 
-void print(SBookList* list)
+void print(SBookCollection* list)
 {
 	printf("[\n");
 	for (int i = 0; i < list->size; i++)
@@ -13,7 +13,7 @@ void print(SBookList* list)
 	printf("]\n");
 }
 
-void print(DBookList* list)
+void print(DBookCollection* list)
 {
 	printf("[\n");
 	for (int i = 0; i < list->size; i++)

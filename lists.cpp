@@ -9,30 +9,50 @@ List init(Book book) {
     return List { root };  
 }
 
-Node* addBook(Node* elem, Book book) {
-    Node* temp = (Node*) malloc(sizeof(Node));
-    Node* p = elem->next;           // сохранение указателя на следующий узел
-    elem->next = temp;              // предыдущий узел указывает на создаваемый
-    temp->data = book;              // сохранение поля данных добавляемого узла
-    temp->next = p;                 // созданный узел указывает на следующий элемент
-    return temp;                    // возвращаем адрес добавленного узла
+void pushStart(List* list, Book book) {
+    Node* node = (Node*)malloc(sizeof(Node));
+
+    node->data = book;
+    node->next = list->first;
+
+    list->first = node;
 }
 
-void deleteBook(List* list, Node* elem) {
+void pushEnd(List* list, Book book) {
+    Node* node = (Node*) malloc(sizeof(Node));
+    node->data = book;
+    node->next = NULL;
+    if (list->first == NULL) {
+        list->first = node;
+    } else {
+        Node* temp = list->first;
+        while (temp->next != NULL)
+            temp = temp->next;
+        temp->next = node;
+    }
+}
+
+void deleteBookByName(List* list, const char* bookName) {
     Node* temp = list->first;
-    // просматриваем список начиная с корня пока не найдем узел, предшествующий lst
-    while (temp->next != elem)
-        temp = temp->next;
-    temp->next = elem->next;        // переставляем указатель
-    free(elem);
-}
 
-void printBooks(List* list) {
-    Node* p = list->first;
-    do {
-        printf("%p ", &(p->data));  // вывод адреса элемента p->data
-        p = p->next;                // переход к следующему узлу
-    } while (p != NULL);
+    if(temp == NULL)
+        return;
+
+    if(!strcmp(temp->data.name, bookName)) {
+        list->first = temp->next;
+        free(temp);
+        return;
+    }
+
+    while (temp->next) {
+        if (!strcmp(temp->next->data.name, bookName)) {
+            Node* removing = temp->next;
+            temp->next = removing->next;
+            free(removing);
+            break;
+        }
+        temp = temp->next;
+    }
 }
 
 void deleteList(List* list) {
@@ -46,11 +66,30 @@ void deleteList(List* list) {
     free(list);
 }
 
-void push(List* list, Book book) {
-    Node* node = (Node*)malloc(sizeof(Node));
+void printBooks(List* list) {
+    Node* p = list->first;
 
-    node->data = book;
-    node->next = list->first;
+    if (p == NULL)
+        return;
 
-    list->first = node;
+    do {
+        printf("%p ", &(p->data));  // вывод адреса элемента p->data
+        p = p->next;                // переход к следующему узлу
+    } while (p != NULL);
+}
+
+void printHandler(Book* book) {
+    printf("%p ", book);
+}
+
+void handleBooks(List* list, void(*handler)(Book*)) {
+    Node* p = list->first;
+
+    if (p == NULL)
+        return;
+
+    do {
+        handler(&(p->data));
+        p = p->next;
+    } while (p != NULL);
 }

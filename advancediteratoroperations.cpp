@@ -13,7 +13,7 @@ int insertSort (List &list, Book book) {
     Iterator it = begin(list);
 
     if (!isSet(it) || get(it)->rating >= book.rating)
-        push (&list, book); // почему прямое обращение к методу динамической структуры?
+        pushStart(&list, book); // почему прямое обращение к методу динамической структуры?
     else {
         for (position = 1; it != end(list) && getNext(it)->rating < book.rating; next(it), position++);
         add (list, it, book);

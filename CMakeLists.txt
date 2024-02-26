@@ -16,7 +16,7 @@ add_executable(CollectionsSample main.cpp
     samplestructs.h
     iterator.h iterator.cpp
     advancediteratoroperations.h advancediteratoroperations.cpp
-    notation.h notation.cpp
+    # notation.h notation.cpp
 )
 
 install(TARGETS CollectionsSample

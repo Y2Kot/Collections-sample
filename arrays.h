@@ -4,21 +4,21 @@
 #include <stdlib.h>
 #include "samplestructs.h"
 
-// Список на базе статического массива
-struct SBookList {
+// Коллекция на базе статического массива
+struct SBookCollection {
     Book books[SIZE];
     int size;
 };
 
-void staticAddBook(SBookList* books, Book book, int index);
-void staticRemoveBook(SBookList* books, int index);
+void staticAddBook(SBookCollection* const books, Book book, int index);
+void staticRemoveBook(SBookCollection* const books, int index);
 
-struct DBookList {
+struct DBookCollection {
     Book* books;
     int size;
 };
 
-void dynamicAddBook(DBookList* books, Book book, int index);
-void dynamicRemoveBook(DBookList* books, int index);
+void dynamicAddBook(DBookCollection* const books, Book book, int index);
+void dynamicRemoveBook(DBookCollection* const books, int index);
 
 #endif // ARRAYS_H

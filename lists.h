@@ -3,6 +3,7 @@
 
 #include <cstdio>
 #include <stdlib.h>
+#include <string.h>
 #include "samplestructs.h"
 
 struct List {
@@ -10,9 +11,11 @@ struct List {
 };
 
 List init(Book book);
-Node* addBook(Node* elem, Book book);
-void deleteBook(List* list, Node* elem);
-void deleteAllBooks(Node* root);
+void addBook(List* elem, Book book);
+void deleteBookByName(List* list, const char* name);
+void clear(List* list);
 
-void push(List* list, Book book);
+void pushStart(List* list, Book book);
+void pushEnd(List* list, Book book);
+void handleBooks(List* list, void(*handler)(Book*));
 #endif // LISTS_H
