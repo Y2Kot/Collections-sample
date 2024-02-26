@@ -1,5 +1,6 @@
 #include "prints.h"
 #include "advancediteratoroperations.h"
+#include <stdlib.h>
 
 void testStaticList();
 void testDynamicList();
@@ -10,13 +11,17 @@ void testStack();
 void testIterator();
 
 int main() {
-   testStaticList();
-   testDynamicList();
-   testList();
-   testQueue();
-   testStack();
-   testLinkedList();
-    testIterator();
+    int a = 3;
+    char buffer[5];
+    snprintf(buffer, 2, "%b", 5);
+    printf("%s", buffer);
+   // testStaticList();
+   // testDynamicList();
+   // testList();
+   // testQueue();
+   // testStack();
+   // testLinkedList();
+   // testIterator();
     return 0;
 }
 
@@ -129,7 +134,7 @@ void testList() {
     pushEnd(&list, newBook);
     pushStart(&list, superNewBook);
     print(&list);
-    deleteBook(&list, &newBook);
+    deleteBookByName(&list, newBook.name);
     print(&list);
 }
 
