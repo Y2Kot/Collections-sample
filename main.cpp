@@ -11,10 +11,6 @@ void testStack();
 void testIterator();
 
 int main() {
-    int a = 3;
-    char buffer[5];
-    snprintf(buffer, 2, "%b", 5);
-    printf("%s", buffer);
    // testStaticList();
    // testDynamicList();
    // testList();
