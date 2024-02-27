@@ -8,7 +8,7 @@ void staticAddBook(SBookCollection* const books, Book book, int index) {
 }
 
 void staticRemoveBook(SBookCollection* const books, int index) {
-    for (int i = index; i < books->size; i++)
+    for (int i = index; i < books->size - 1; i++)
         books->books[i] = books->books[i + 1];
     books->size--;
 }
@@ -22,7 +22,7 @@ void dynamicAddBook(DBookCollection* const books, Book book, int index) {
 }
 
 void dynamicRemoveBook(DBookCollection* const books, int index) {
-    for (int i = index; i < books->size; i++)
+    for (int i = index; i < books->size - 1; i++)
         books->books[i] = books->books[i + 1];
     books->size--;
     books->books = (Book*)realloc(books->books, books->size * sizeof(Book));
