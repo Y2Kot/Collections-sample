@@ -12,9 +12,9 @@ struct Stack {
 
 Stack initStack();
 bool isEmpty(Stack* stack);
-void push(Stack* stack, Book book);
-bool pop(Stack* stack, Book* result);
+void push(Stack* stack, Book* book);
+bool pop(Stack* stack, Book** result);
 void clear(Stack* stack);
-bool peek(Stack* stack, Book* book);
+bool peek(Stack* stack, Book** book);
 
 #endif // STACK_H

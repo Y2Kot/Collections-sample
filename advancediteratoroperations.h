@@ -11,7 +11,7 @@
 void printList(const List& list);
 
 // добавление книги в порядке возрастания рейтинга
-int insertSort(List& list, Book book);
+int insertSort(List& list, Book* book);
 
 // удаление повторяющихся элементов списка
 int removeRepeated(List& list);

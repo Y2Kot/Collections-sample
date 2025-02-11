@@ -20,7 +20,7 @@ void disposeList(LinkedList* list) {
     free(list);
 }
 
-void pushFront(LinkedList* list, Book data) {
+void pushFront(LinkedList* list, Book* data) {
     LinkedNode* tmp = (LinkedNode*)malloc(sizeof(LinkedNode));
 
     tmp->data = data;
@@ -38,7 +38,7 @@ void pushFront(LinkedList* list, Book data) {
     list->size++;
 }
 
-void pushBack(LinkedList* list, Book data) {
+void pushBack(LinkedList* list, Book* data) {
     LinkedNode* tmp = (LinkedNode*)malloc(sizeof(LinkedNode));
 
     tmp->data = data;
@@ -55,7 +55,7 @@ void pushBack(LinkedList* list, Book data) {
     list->size++;
 }
 
-Book popFront(LinkedList* list) {
+Book* popFront(LinkedList* list) {
     LinkedNode* oldHead = list->head;
     list->head = oldHead->next;
     if (list->head)
@@ -64,14 +64,14 @@ Book popFront(LinkedList* list) {
     if (oldHead == list->tail)
         list->tail = NULL;
 
-    Book book = oldHead->data;
+    Book* book = oldHead->data;
     free(oldHead);
 
     list->size--;
     return book;
 }
 
-Book popBack(LinkedList* list) {
+Book* popBack(LinkedList* list) {
     LinkedNode* oldTail = list->tail;
     list->tail = oldTail->prev;
     if (list->tail)
@@ -80,7 +80,7 @@ Book popBack(LinkedList* list) {
     if (oldTail == list->head)
         list->head = NULL;
 
-    Book book = oldTail->data;
+    Book* book = oldTail->data;
     free(oldTail);
 
     list->size--;

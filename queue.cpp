@@ -11,7 +11,7 @@ bool isEmpty(Queue* queue) {
     return !queue->head;
 }
 
-bool pop(Queue* queue, Book* book) {
+bool pop(Queue* queue, Book** book) {
     if(isEmpty(queue))
         return false;
 
@@ -26,7 +26,7 @@ bool pop(Queue* queue, Book* book) {
 
 }
 
-void push(Queue *queue, Book book) {
+void push(Queue *queue, Book* book) {
     Node* node = (Node*)malloc(sizeof(Node));
     node->data = book;
     node->next = NULL;

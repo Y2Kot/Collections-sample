@@ -12,7 +12,7 @@ struct Queue {
 
 Queue initQueue();
 bool isEmpty(Queue* queue);
-bool pop(Queue* queue, Book* book);
-void push(Queue *queue, Book book);
+bool pop(Queue* queue, Book** book);
+void push(Queue *queue, Book* book);
 
 #endif // QUEUE_H

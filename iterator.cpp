@@ -23,14 +23,14 @@ bool next(Iterator& it) {
 }
 
 Book* get(Iterator& it) {
-    return it.current ? &(it.current->data) : NULL;
+    return it.current ? it.current->data : NULL;
 }
 
 Book* getNext(Iterator& it) {
-    return (it.current && it.current->next) ? &(it.current->next->data) : NULL;
+    return (it.current && it.current->next) ? it.current->next->data : NULL;
 }
 
-bool set(Iterator& it, Book book) {
+bool set(Iterator& it, Book* book) {
     if (!it.current)
         return false;
 
@@ -38,7 +38,7 @@ bool set(Iterator& it, Book book) {
     return true;
 }
 
-bool setNext (Iterator& it, Book book) {
+bool setNext (Iterator& it, Book* book) {
     if (!it.current || !it.current->next)
         return false;
 
@@ -50,7 +50,7 @@ bool isSet(const Iterator& it) {
     return it.current;
 }
 
-bool add(List& list, Iterator& it, Book book) {
+bool add(List& list, Iterator& it, Book* book) {
     if (!isSet(it))
         return false;
 
@@ -77,7 +77,7 @@ bool remove(Book& book, List& list, const Iterator& it) {
         return false;
 
     Node* delNode = it.current->next;
-    book = delNode->data;
+    book = *(delNode->data);
 
     it.current->next = delNode->next;
 

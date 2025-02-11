@@ -1,6 +1,6 @@
 #include "lists.h"
 
-List init(Book book) {
+List init(Book* book) {
     Node* root = (Node*) malloc(sizeof(Node));
     root->data = book;
     root->next = NULL; // следующий элемент списка
@@ -9,7 +9,7 @@ List init(Book book) {
     return List { root };  
 }
 
-void pushStart(List* list, Book book) {
+void pushStart(List* list, Book* book) {
     Node* node = (Node*)malloc(sizeof(Node));
 
     node->data = book;
@@ -18,7 +18,7 @@ void pushStart(List* list, Book book) {
     list->first = node;
 }
 
-void pushEnd(List* list, Book book) {
+void pushEnd(List* list, Book* book) {
     Node* node = (Node*) malloc(sizeof(Node));
     node->data = book;
     node->next = NULL;
@@ -38,14 +38,14 @@ void deleteBookByName(List* list, const char* bookName) {
     if(temp == NULL)
         return;
 
-    if(!strcmp(temp->data.name, bookName)) {
+    if(!strcmp(temp->data->name, bookName)) {
         list->first = temp->next;
         free(temp);
         return;
     }
 
     while (temp->next) {
-        if (!strcmp(temp->next->data.name, bookName)) {
+        if (!strcmp(temp->next->data->name, bookName)) {
             Node* removing = temp->next;
             temp->next = removing->next;
             free(removing);
@@ -89,7 +89,7 @@ void handleBooks(List* list, void(*handler)(Book*)) {
         return;
 
     do {
-        handler(&(p->data));
+        handler(p->data);
         p = p->next;
     } while (p != NULL);
 }
