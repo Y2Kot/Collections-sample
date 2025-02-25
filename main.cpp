@@ -79,7 +79,7 @@ void testDynamicList() {
 
 void testLinkedList() {
     printf("\nLinked list:\n");
-    LinkedList list = initLinkedList();
+    LinkedList* list = initLinkedList();
 
     Book firstBook = Book {
             "First Book",
@@ -95,12 +95,14 @@ void testLinkedList() {
             10
     };
 
-    pushFront(&list, &firstBook);
-    pushBack(&list, &newBook);
-    print(&list);
-    popBack(&list);
-    popFront(&list);
-    print(&list);
+    pushFront(list, &firstBook);
+    pushBack(list, &newBook);
+    print(list);
+    popBack(list, NULL);
+    popFront(list, NULL);
+    print(list);
+
+    disposeList(list);
 }
 
 void testList() {
@@ -157,7 +159,7 @@ void testQueue() {
     push(&queue, &newBook);
     print(&queue);
     Book* poppedBook = (Book*)malloc(sizeof(Book));
-    pop(&queue, &poppedBook);
+    pop(&queue, poppedBook);
     print(poppedBook);
     print(&queue);
 }
@@ -184,7 +186,7 @@ void testStack() {
     push(&stack, &newBook);
     print(&stack);
     Book* poppedBook = (Book*)malloc(sizeof(Book));
-    pop(&stack, &poppedBook);
+    pop(&stack, poppedBook);
     print(poppedBook);
     print(&stack);
 }

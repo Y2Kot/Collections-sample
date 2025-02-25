@@ -1,8 +1,11 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 List init(Book* book) {
     Node* root = (Node*) malloc(sizeof(Node));
-    root->data = book;
+    root->data = *book;
     root->next = NULL; // следующий элемент списка
     // Если поддерживается стандарт c++ 20, то можно использовать именованные параметры:
     // return List{ .first = root };
@@ -12,7 +15,7 @@ List init(Book* book) {
 void pushStart(List* list, Book* book) {
     Node* node = (Node*)malloc(sizeof(Node));
 
-    node->data = book;
+    node->data = *book;
     node->next = list->first;
 
     list->first = node;
@@ -20,7 +23,7 @@ void pushStart(List* list, Book* book) {
 
 void pushEnd(List* list, Book* book) {
     Node* node = (Node*) malloc(sizeof(Node));
-    node->data = book;
+    node->data = *book;
     node->next = NULL;
     if (list->first == NULL) {
         list->first = node;
@@ -38,14 +41,14 @@ void deleteBookByName(List* list, const char* bookName) {
     if(temp == NULL)
         return;
 
-    if(!strcmp(temp->data->name, bookName)) {
+    if(!strcmp(temp->data.name, bookName)) {
         list->first = temp->next;
         free(temp);
         return;
     }
 
     while (temp->next) {
-        if (!strcmp(temp->next->data->name, bookName)) {
+        if (!strcmp(temp->next->data.name, bookName)) {
             Node* removing = temp->next;
             temp->next = removing->next;
             free(removing);
@@ -89,7 +92,7 @@ void handleBooks(List* list, void(*handler)(Book*)) {
         return;
 
     do {
-        handler(p->data);
+        handler(&(p->data));
         p = p->next;
     } while (p != NULL);
 }

@@ -1,4 +1,5 @@
 #include "iterator.h"
+#include <stdlib.h>
 
 Iterator begin(const List& list) {
     Iterator iterator;
@@ -23,26 +24,26 @@ bool next(Iterator& it) {
 }
 
 Book* get(Iterator& it) {
-    return it.current ? it.current->data : NULL;
+    return it.current ? &(it.current->data) : NULL;
 }
 
 Book* getNext(Iterator& it) {
-    return (it.current && it.current->next) ? it.current->next->data : NULL;
+    return (it.current && it.current->next) ? &(it.current->next->data) : NULL;
 }
 
 bool set(Iterator& it, Book* book) {
     if (!it.current)
         return false;
 
-    it.current->data = book;
+    it.current->data = *book;
     return true;
 }
 
-bool setNext (Iterator& it, Book* book) {
-    if (!it.current || !it.current->next)
+bool setNext(Iterator& it, Book* book) {
+    if(!it.current || !it.current->next)
         return false;
 
-    it.current->next->data = book;
+    it.current->next->data = *book;
     return true;
 }
 
@@ -50,12 +51,13 @@ bool isSet(const Iterator& it) {
     return it.current;
 }
 
+// Передаём ссылку на лист, чтобы корректно работало в случае, когда лист пустой
 bool add(List& list, Iterator& it, Book* book) {
     if (!isSet(it))
         return false;
 
     Node* node = (Node*)malloc(sizeof(Node));
-    node->data = book;
+    node->data = *book;
 
     if (!list.first) {
         node->next = NULL;
@@ -69,7 +71,6 @@ bool add(List& list, Iterator& it, Book* book) {
     }
 
     return true;
-
 }
 
 bool remove(Book& book, List& list, const Iterator& it) {
@@ -77,7 +78,7 @@ bool remove(Book& book, List& list, const Iterator& it) {
         return false;
 
     Node* delNode = it.current->next;
-    book = *(delNode->data);
+    book = delNode->data;
 
     it.current->next = delNode->next;
 
@@ -85,10 +86,10 @@ bool remove(Book& book, List& list, const Iterator& it) {
     return true;
 }
 
-bool operator == (const Iterator& it1, const Iterator& it2) {
+bool operator ==(const Iterator& it1, const Iterator& it2) {
     return it1.current == it2.current;
 }
 
-bool operator != (const Iterator& it1, const Iterator& it2) {
+bool operator !=(const Iterator& it1, const Iterator& it2) {
     return it1.current != it2.current;
 }

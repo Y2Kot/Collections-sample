@@ -11,13 +11,13 @@ struct Book {
 };
 
 struct LinkedNode {
-    Book* data;         // поле данных
+    Book data;          // поле данных
     LinkedNode* next;   // поле связей (предыдущий элемент)
     LinkedNode* prev;   // поле связей (следующий элемент)
 };
 
 struct Node {
-    Book* data;         // поле данных
+    Book data;          // поле данных
     Node* next;         // поле связей
 };
 

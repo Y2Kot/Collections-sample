@@ -1,4 +1,5 @@
 #include "stack.h"
+#include <stdlib.h>
 
 Stack initStack() {
     Stack stack = { NULL };
@@ -11,12 +12,12 @@ bool isEmpty(Stack* stack) {
 
 void push(Stack* stack, Book* book) {
     Node* newNode = (Node*) malloc(sizeof(Node));
-    newNode->data = book;
+    newNode->data = *book;
     newNode->next = stack->top;
     stack->top = newNode;
 }
 
-bool pop(Stack* stack, Book** book) {
+bool pop(Stack* stack, Book* book) {
     if (isEmpty(stack))
         return false;
 
@@ -35,7 +36,7 @@ void clear(Stack* stack) {
     }
 }
 
-bool peek(Stack* stack, Book** book) {
+bool peek(Stack* stack, Book* book) {
     if (isEmpty(stack))
         return false;
 

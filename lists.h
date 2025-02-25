@@ -1,9 +1,6 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#include <cstdio>
-#include <stdlib.h>
-#include <string.h>
 #include "samplestructs.h"
 
 struct List {

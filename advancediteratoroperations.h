@@ -1,11 +1,7 @@
 #ifndef ADVANCEDITERATOROPERATIONS_H
 #define ADVANCEDITERATOROPERATIONS_H
 
-#include "samplestructs.h"
-#include "iterator.h"
 #include "lists.h"
-#include "prints.h"
-#include <string.h>
 
 // вывод списка
 void printList(const List& list);

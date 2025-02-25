@@ -1,29 +1,37 @@
 #include "linkedlist.h"
+#include <stdlib.h>
 
-LinkedList initLinkedList() {
-    LinkedList tmp;
-    tmp.size = 0;
-    tmp.head = NULL;
-    tmp.tail = NULL;
+LinkedList* initLinkedList() {
+    LinkedList* lst = (LinkedList*)malloc(sizeof(LinkedList));
 
-    return tmp;
+    lst->size = 0;
+    lst->head = NULL;
+    lst->tail = NULL;
+
+    return lst;
 }
 
 void disposeList(LinkedList* list) {
     LinkedNode* tmp = list->head;
     LinkedNode* next = NULL;
+
     while (tmp) {
         next = tmp->prev;
         free(tmp);
         tmp = next;
     }
+
+    list->head = NULL;
+    list->tail = NULL;
+    list->size = 0;
+
     free(list);
 }
 
 void pushFront(LinkedList* list, Book* data) {
     LinkedNode* tmp = (LinkedNode*)malloc(sizeof(LinkedNode));
 
-    tmp->data = data;
+    tmp->data = *data;
     tmp->next = list->head;
     tmp->prev = NULL;
 
@@ -41,7 +49,7 @@ void pushFront(LinkedList* list, Book* data) {
 void pushBack(LinkedList* list, Book* data) {
     LinkedNode* tmp = (LinkedNode*)malloc(sizeof(LinkedNode));
 
-    tmp->data = data;
+    tmp->data = *data;
     tmp->prev = list->tail;
     tmp->next = NULL;
     if (list->tail)
@@ -55,24 +63,35 @@ void pushBack(LinkedList* list, Book* data) {
     list->size++;
 }
 
-Book* popFront(LinkedList* list) {
+bool popFront(LinkedList* list, Book* book) {
     LinkedNode* oldHead = list->head;
+
+    if(oldHead == NULL)
+        return false;
+
     list->head = oldHead->next;
+
     if (list->head)
         list->head->prev = NULL;
 
     if (oldHead == list->tail)
         list->tail = NULL;
 
-    Book* book = oldHead->data;
+    if(book != NULL)
+        *book = oldHead->data;
+
     free(oldHead);
 
     list->size--;
-    return book;
+    return true;
 }
 
-Book* popBack(LinkedList* list) {
+bool popBack(LinkedList* list, Book* book) {
     LinkedNode* oldTail = list->tail;
+
+    if(oldTail == NULL)
+        return false;
+
     list->tail = oldTail->prev;
     if (list->tail)
         list->tail->next = NULL;
@@ -80,9 +99,11 @@ Book* popBack(LinkedList* list) {
     if (oldTail == list->head)
         list->head = NULL;
 
-    Book* book = oldTail->data;
+    if (book != NULL)
+        *book = oldTail->data;
+
     free(oldTail);
 
     list->size--;
-    return book;
+    return true;
 }

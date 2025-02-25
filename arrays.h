@@ -1,7 +1,6 @@
 #ifndef ARRAYS_H
 #define ARRAYS_H
 
-#include <stdlib.h>
 #include "samplestructs.h"
 
 // Коллекция на базе статического массива

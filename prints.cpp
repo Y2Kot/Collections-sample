@@ -28,7 +28,7 @@ void print(LinkedList* list)
 	LinkedNode* next = NULL;
 	while (tmp) {
 		next = tmp->next;
-        print(tmp->data);
+        print(&(tmp->data));
 		tmp = next;
 	}
 	printf("]\n");
@@ -41,7 +41,7 @@ void print(Queue* queue)
 	Node* next = NULL;
 	while (tmp) {
 		next = tmp->next;
-        print(tmp->data);
+        print(&(tmp->data));
 		tmp = next;
 	}
 	printf("]\n");
@@ -54,7 +54,7 @@ void print(Stack* stack)
 	Node* next = NULL;
 	while (tmp) {
 		next = tmp->next;
-        print(tmp->data);
+        print(&(tmp->data));
 		tmp = next;
 	}
 	printf("]\n");
@@ -65,8 +65,8 @@ void print(List* list)
 	printf("[\n");
 	Node* p = list->first;
 	do {
-        print(p->data);      // вывод адреса элемента p->data
-        p = p->next;         // переход к следующему узлу
+        print(&(p->data));      // вывод адреса элемента p->data
+        p = p->next;            // переход к следующему узлу
 	} while (p != NULL);
 	printf("]\n");
 }

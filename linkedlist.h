@@ -1,7 +1,6 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-#include <stdlib.h>
 #include "samplestructs.h"
 
 struct LinkedList {
@@ -10,11 +9,11 @@ struct LinkedList {
     LinkedNode *tail;
 };
 
-LinkedList initLinkedList();
+LinkedList* initLinkedList();
 void disposeList(LinkedList* list);
 void pushFront(LinkedList* list, Book* data);
-Book* popFront(LinkedList* list);
+bool popFront(LinkedList* list, Book* book);
 void pushBack(LinkedList* list, Book* data);
-Book* popBack(LinkedList* list);
+bool popBack(LinkedList* list, Book* book);
 
 #endif // LINKEDLIST_H
