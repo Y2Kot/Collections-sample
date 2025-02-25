@@ -1,17 +1,13 @@
 #ifndef ADVANCEDITERATOROPERATIONS_H
 #define ADVANCEDITERATOROPERATIONS_H
 
-#include "samplestructs.h"
-#include "iterator.h"
 #include "lists.h"
-#include "prints.h"
-#include <string.h>
 
 // вывод списка
 void printList(const List& list);
 
 // добавление книги в порядке возрастания рейтинга
-int insertSort(List& list, Book book);
+int insertSort(List& list, Book* book);
 
 // удаление повторяющихся элементов списка
 int removeRepeated(List& list);

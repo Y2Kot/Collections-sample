@@ -24,16 +24,16 @@ Book* get(Iterator& it);
 Book* getNext(Iterator& it);
 
 // обновление информационной части узла, на который установлен итератор
-bool set(Iterator& it, Book book);
+bool set(Iterator& it, Book* book);
 
 // обновление информационной части узла, следуюшего за тем на который установлен итератор
-bool setNext(Iterator& it, Book book);
+bool setNext(Iterator& it, Book* book);
 
 // проверка, установлен ли итератор на список
 bool isSet(const Iterator& it);
 
 // добавление нового узла, после того узла, на который установлен итератор
-bool add(List& list, Iterator& it, Book book);
+bool add(List& list, Iterator& it, Book* book);
 
 // удаление узла, следующего за тем, на который установлен итератор
 bool remove(Book& book, List& list, const Iterator& it);

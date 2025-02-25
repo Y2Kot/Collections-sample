@@ -1,26 +1,29 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
-List init(Book book) {
+List init(Book* book) {
     Node* root = (Node*) malloc(sizeof(Node));
-    root->data = book;
+    root->data = *book;
     root->next = NULL; // следующий элемент списка
     // Если поддерживается стандарт c++ 20, то можно использовать именованные параметры:
     // return List{ .first = root };
     return List { root };  
 }
 
-void pushStart(List* list, Book book) {
+void pushStart(List* list, Book* book) {
     Node* node = (Node*)malloc(sizeof(Node));
 
-    node->data = book;
+    node->data = *book;
     node->next = list->first;
 
     list->first = node;
 }
 
-void pushEnd(List* list, Book book) {
+void pushEnd(List* list, Book* book) {
     Node* node = (Node*) malloc(sizeof(Node));
-    node->data = book;
+    node->data = *book;
     node->next = NULL;
     if (list->first == NULL) {
         list->first = node;

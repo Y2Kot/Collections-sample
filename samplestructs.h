@@ -11,14 +11,14 @@ struct Book {
 };
 
 struct LinkedNode {
-    Book data;
-    LinkedNode* next;
-    LinkedNode* prev;
+    Book data;          // поле данных
+    LinkedNode* next;   // поле связей (предыдущий элемент)
+    LinkedNode* prev;   // поле связей (следующий элемент)
 };
 
 struct Node {
-    Book data;  // поле данных
-    Node* next; // поле связей
+    Book data;          // поле данных
+    Node* next;         // поле связей
 };
 
 #endif // SAMPLESTRUCTS_H

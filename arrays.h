@@ -1,7 +1,6 @@
 #ifndef ARRAYS_H
 #define ARRAYS_H
 
-#include <stdlib.h>
 #include "samplestructs.h"
 
 // Коллекция на базе статического массива
@@ -10,7 +9,7 @@ struct SBookCollection {
     int size;
 };
 
-void staticAddBook(SBookCollection* const books, Book book, int index);
+void staticAddBook(SBookCollection* const books, Book* book, int index);
 void staticRemoveBook(SBookCollection* const books, int index);
 
 struct DBookCollection {
@@ -18,7 +17,7 @@ struct DBookCollection {
     int size;
 };
 
-void dynamicAddBook(DBookCollection* const books, Book book, int index);
+void dynamicAddBook(DBookCollection* const books, Book* book, int index);
 void dynamicRemoveBook(DBookCollection* const books, int index);
 
 #endif // ARRAYS_H

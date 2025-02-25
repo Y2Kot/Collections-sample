@@ -1,4 +1,5 @@
 #include "stack.h"
+#include <stdlib.h>
 
 Stack initStack() {
     Stack stack = { NULL };
@@ -9,9 +10,9 @@ bool isEmpty(Stack* stack) {
     return !stack->top;
 }
 
-void push(Stack* stack, Book book) {
+void push(Stack* stack, Book* book) {
     Node* newNode = (Node*) malloc(sizeof(Node));
-    newNode->data = book;
+    newNode->data = *book;
     newNode->next = stack->top;
     stack->top = newNode;
 }

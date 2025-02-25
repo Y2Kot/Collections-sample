@@ -1,4 +1,5 @@
 #include "queue.h"
+#include <stdlib.h>
 
 Queue initQueue() {
     Queue queue;
@@ -26,9 +27,9 @@ bool pop(Queue* queue, Book* book) {
 
 }
 
-void push(Queue *queue, Book book) {
+void push(Queue *queue, Book* book) {
     Node* node = (Node*)malloc(sizeof(Node));
-    node->data = book;
+    node->data = *book;
     node->next = NULL;
 
     if(isEmpty(queue))
