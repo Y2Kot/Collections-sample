@@ -7,6 +7,7 @@
 #include "queue.h"
 #include "stack.h"
 #include "iterator.h"
+#include <stdio.h>
 
 void print(Book* book);
 void print(SBookCollection* list);
