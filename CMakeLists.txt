@@ -16,6 +16,7 @@ add_executable(CollectionsSample main.cpp
     samplestructs.h
     iterator.h iterator.cpp
     advancediteratoroperations.h advancediteratoroperations.cpp
+    voidlist.h voidlist.cpp
     # notation.h notation.cpp
 )
 

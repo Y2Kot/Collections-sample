@@ -1,6 +1,8 @@
 #include "prints.h"
 #include "advancediteratoroperations.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include "voidlist.h"
 
 void testStaticList();
 void testDynamicList();
@@ -9,15 +11,17 @@ void testList();
 void testQueue();
 void testStack();
 void testIterator();
+void testVoidList();
 
 int main() {
-   testStaticList();
-   testDynamicList();
-   testLinkedList();
-   testList();
-   testQueue();
-   testStack();
-   testIterator();
+    testStaticList();
+    testDynamicList();
+    testLinkedList();
+    testList();
+    testQueue();
+    testStack();
+    testIterator();
+    testVoidList();
     return 0;
 }
 
@@ -252,4 +256,22 @@ void testIterator() {
     removeRepeated(sortedList);
     printf("\nIterator:SortedList:Removed dublicates:\n");
     printList(sortedList);
+}
+
+void testVoidList() {
+    VoidList list;
+    init_list(&list, sizeof(Student));
+
+    Student student1 = {
+        .age = 24,
+        .weight = 80,
+        .name = "Satoru Gojo",
+    };
+    push_front(&list, &student1);
+
+    Student student2;
+    pop_front(&list, &student2);
+    printf("name: %s, age: %d, weight: %d\n", student2.name, student2.age, student2.weight);
+
+    free_list(&list);
 }
